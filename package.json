@@ -27,5 +27,5 @@
     "concurrently": "9.0.0",
     "typescript": "5.3.3"
   },
-  "packageManager": "yarn@1.22.19"
+  "packageManager": "npm@10.7.0"
 }
