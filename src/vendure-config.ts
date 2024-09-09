@@ -9,6 +9,7 @@ import { AssetServerPlugin } from '@vendure/asset-server-plugin';
 import { AdminUiPlugin } from '@vendure/admin-ui-plugin';
 import 'dotenv/config';
 import path from 'path';
+import { compileUiExtensions } from '@vendure/ui-devkit/compiler';
 
 const IS_DEV = process.env.APP_ENV === 'dev';
 const serverPort = +process.env.PORT || 3000;
@@ -94,6 +95,11 @@ export const config: VendureConfig = {
             adminUiConfig: {
                 apiPort: serverPort,
             },
+            app: compileUiExtensions({
+                outputPath: path.join(__dirname, "../admin-ui"),
+                extensions: [],
+                devMode: true,
+            }),
         }),
     ],
 };
